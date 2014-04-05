@@ -11,11 +11,11 @@ namespace CodingProblems
     /// </summary>
     public static class BitReversal
     {
-      private static uint BIT_COUNT;
+      private static int BIT_COUNT;
 
-      public ulong GetLongWithBitsReversed(ulong x, uint bitCount)
+      public static ulong GetLongWithBitsReversed(ulong x, int bitCount)
       {
-        BIT_COUNT = bitCount;
+        BIT_COUNT = Math.Abs(bitCount);
         bool[] bits = ConvertLongToBitArray(x);
         bool[] reverse = new bool[BIT_COUNT];
 
@@ -28,11 +28,11 @@ namespace CodingProblems
         return reversedLong;
       }
 
-      private ulong ConvertBitArrayToLong(bool[] reverse)
+      private static ulong ConvertBitArrayToLong(bool[] reverse)
       {
         ulong convertedLong = 0;
 
-        for (uint i = 0; i < BIT_COUNT; i++)
+        for (int i = 0; i < BIT_COUNT; i++)
         {
           if (reverse[i])
           {
@@ -43,11 +43,11 @@ namespace CodingProblems
         return convertedLong;
       }
 
-      private bool[] ConvertLongToBitArray(ulong x)
+      private static bool[] ConvertLongToBitArray(ulong x)
       {
         bool[] bitArray = new bool[BIT_COUNT];
 
-        for (uint i = BIT_COUNT - 1; i >= 0; i--)
+        for (int i = BIT_COUNT - 1; i >= 0; i--)
         {
           ulong compLong = Convert.ToUInt64(Math.Pow(2, i));
           if (x >= compLong)
