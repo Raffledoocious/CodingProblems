@@ -13,6 +13,13 @@ namespace CodingProblems
     {
       private static int BIT_COUNT;
 
+      /// <summary>
+      /// Given an 64bit unsigned integer and a bit count, returns the 
+      /// value of the integer if the bits were reversed.
+      /// </summary>
+      /// <param name="x">Unsigned 64bit integer to convert</param>
+      /// <param name="bitCount">number of bits to swap</param>
+      /// <returns>Reversed integer</returns>
       public static ulong GetLongWithBitsReversed(ulong x, int bitCount)
       {
         BIT_COUNT = Math.Abs(bitCount);
@@ -28,6 +35,12 @@ namespace CodingProblems
         return reversedLong;
       }
 
+      /// <summary>
+      /// Given a boolean array representing bits, returns 
+      /// an unsigned integer value
+      /// </summary>
+      /// <param name="reverse">the boolean array</param>
+      /// <returns>Unsigned 64bit integer</returns>
       private static ulong ConvertBitArrayToLong(bool[] reverse)
       {
         ulong convertedLong = 0;
@@ -43,6 +56,12 @@ namespace CodingProblems
         return convertedLong;
       }
 
+      /// <summary>
+      /// Given a unsigned 64Bit integer x, returns 
+      /// a bit array representation of the integer
+      /// </summary>
+      /// <param name="x"></param>
+      /// <returns>bit array representation</returns>
       private static bool[] ConvertLongToBitArray(ulong x)
       {
         bool[] bitArray = new bool[BIT_COUNT];
