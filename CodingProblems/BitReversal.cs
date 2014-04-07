@@ -10,7 +10,7 @@ namespace CodingProblems
     /// Problem 5.3
     /// </summary>
     public static class BitReversal
-    {
+    { 
       private static int BIT_COUNT;
 
       /// <summary>
@@ -18,8 +18,7 @@ namespace CodingProblems
       /// value of the integer if the bits were reversed.
       /// </summary>
       /// <param name="x">Unsigned 64bit integer to convert</param>
-      /// <param name="bitCount">number of bits to swap</param>
-      /// <returns>Reversed integer</returns>
+      /// <param name="bitCount">number of bits to swap</param> 
       public static ulong GetLongWithBitsReversed(ulong x, int bitCount)
       {
         BIT_COUNT = Math.Abs(bitCount);

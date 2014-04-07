@@ -5,7 +5,7 @@ using CodingProblems;
 namespace CodingProblemsTests
 {
   [TestClass]
-  public class GetLongWithBitsReversedTests
+  public class BitReversalTests
   {
     [TestMethod]
     public void ReverseBits_5bits_27_Returns27()
