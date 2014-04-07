@@ -21,54 +21,38 @@ namespace CodingProblems
       List<int> primes = new List<int>();
 
       //handle base cases when 3 <= x <= 7
-      if (x == 2)
+      if (x >= 2)
       {
         primes.Add(2);
       }
-      else if (x == 3 || x == 4)
+      if (x >= 3)
       {
-        primes.Add(2);
         primes.Add(3);
       }
-      else if (x == 5 || x == 6)
+      if (x >= 5)
       {
-        primes.Add(2);
-        primes.Add(3);
         primes.Add(5);
       }
-      else if (x == 7)
+      if (x >= 7)
       {
-        primes.Add(2);
-        primes.Add(3);
-        primes.Add(5);
         primes.Add(7);
       }
-
-      //otherwise, iterate over all non even numbers greater than 8 but less than x
-      else
+      for (int i = 8; i <= x; i++)
       {
-        primes.Add(2);
-        primes.Add(3);
-        primes.Add(5);
-        primes.Add(7);
-
-        for (int i = 8; i <= x; i++)
+        if (i % 2 != 0)
         {
-          if (i % 2 != 0)
+          bool isPrime = true;
+          foreach (int prime in primes)
           {
-            bool isPrime = true;
-            foreach (int prime in primes)
+            if (i % prime == 0)
             {
-              if (i % prime == 0)
-              {
-                isPrime = false;
-                break;
-              }
+              isPrime = false;
+              break;
             }
-            if (isPrime)
-            {
-              primes.Add(i);
-            }
+          }
+          if (isPrime)
+          {
+            primes.Add(i);
           }
         }
       }

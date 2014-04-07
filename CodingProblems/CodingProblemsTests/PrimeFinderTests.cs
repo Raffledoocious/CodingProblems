@@ -9,7 +9,7 @@ namespace CodingProblemsTests
   public class PrimeFinderTests
   {
     [TestMethod]
-    public void FindPrimes_7_ShouldReturn_3_5_7()
+    public void FindPrimes_7_ShouldReturn_2_3_5_7()
     {
       int x = 7;
       List<int> primes = PrimeFinder.FindPrimes(11);
@@ -18,7 +18,7 @@ namespace CodingProblemsTests
     }
 
     [TestMethod]
-    public void FindPrimes_11_ShouldReturn_3_5_7_11()
+    public void FindPrimes_11_ShouldReturn_2_3_5_7_11()
     {
       int x = 11;
       List<int> primes = PrimeFinder.FindPrimes(11);
