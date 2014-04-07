@@ -20,28 +20,16 @@ namespace CodingProblems
     {
       List<int> primes = new List<int>();
 
-      //handle base cases when 3 <= x <= 7
+      //handle base cases
       if (x >= 2)
       {
         primes.Add(2);
       }
-      if (x >= 3)
+      for (int i = 3; i <= x; i++)
       {
-        primes.Add(3);
-      }
-      if (x >= 5)
-      {
-        primes.Add(5);
-      }
-      if (x >= 7)
-      {
-        primes.Add(7);
-      }
-      for (int i = 8; i <= x; i++)
-      {
+        bool isPrime = true;
         if (i % 2 != 0)
         {
-          bool isPrime = true;
           foreach (int prime in primes)
           {
             if (i % prime == 0)
