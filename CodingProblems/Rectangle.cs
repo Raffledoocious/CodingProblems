@@ -9,7 +9,7 @@ namespace CodingProblems
   /// <summary>
   /// Problem 5.12
   /// </summary>
-  class Rectangle
+  public class Rectangle
   {
     public int X { get; set; }
     public int Y { get; set; }
@@ -32,11 +32,20 @@ namespace CodingProblems
 
     public Rectangle GetIntersection(Rectangle rect)
     {
-      int x = Math.Max(this.X, rect.X);
-      int y = Math.Max(this.Y, rect.Y);
-      int width = x + Math.Min( (this.X + this.Width), (rect.X + rect.Width) );
-      int height = y + Math.Min( (this.Y + this.Height), (rect.Y + rect.Height) );
-      return new Rectangle(x, y, width, height);       
+      if (IsPointWithinRectangle(rect.X, rect.Y) || IsPointWithinRectangle(rect.X + rect.Width, rect.Y)  || 
+          IsPointWithinRectangle(rect.X, rect.Y + rect.Height) || IsPointWithinRectangle(rect.X + rect.Width, rect.Y + rect.Height))
+      {
+        int x = Math.Max(this.X, rect.X);
+        int y = Math.Max(this.Y, rect.Y);
+        int width = Math.Min( (this.X + this.Width), (rect.X + rect.Width)) - x;
+        int height = Math.Min( (this.Y + this.Height), (rect.Y + rect.Height)) - y;
+        return new Rectangle(x, y, width, height);       
+      }
+      else
+      {
+        return null;
+      }
+
     }
   }
 }
