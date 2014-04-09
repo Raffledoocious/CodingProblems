@@ -72,7 +72,7 @@ namespace CodingProblems
           {
             x -= compLong;
             bitArray[i] = true;
-          }
+          } 
         }
 
         return bitArray;
