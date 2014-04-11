@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrimeFinderTests.cs" />
     <Compile Include="RectangleTests.cs" />
+    <Compile Include="Spiral2DListTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">
