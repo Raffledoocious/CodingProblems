@@ -20,9 +20,15 @@ namespace CodingProblems
 
       while (printCount < totalCount)
       {
+        if (leftBound == rightBound  && leftBound == topBound  && leftBound == bottomBound)
+        {
+          spiralList.Add(array[leftBound, bottomBound]);
+          printCount++;
+        }
+
         for (int i = leftBound; i < rightBound; i++)
         {
-          spiralList.Add(array[0, i]);
+          spiralList.Add(array[topBound, i]);
           printCount++;
         }
 
