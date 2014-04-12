@@ -38,7 +38,7 @@ namespace CodingProblems
 
      private static void ReverseArrayInRange(ref char[] array, int start, int end)
      {
-       int dist = (int) Math.Ceiling( (decimal)(end - start) / 2);
+       int dist = (int)Math.Ceiling((decimal)(end - start) / 2);
 
        for (int i = 0; i < dist; i++)
        {
