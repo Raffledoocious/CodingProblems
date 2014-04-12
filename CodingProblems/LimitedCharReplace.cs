@@ -54,10 +54,10 @@ namespace CodingProblems
     private static char[] ReplaceAWithDD(char[] array)
     {
       int endPtr = array.Length - 1;
-      int startPtr = 0;
+      int startPtr = FindFirstSpace(array) - 1;
 
       //replace all characters
-      while (endPtr >= startPtr)
+      while (startPtr >= 0)
       {
         if (array[startPtr] == 'a')
         {
@@ -65,28 +65,45 @@ namespace CodingProblems
           array[endPtr] = 'd';
           array[endPtr - 1] = 'd';
           endPtr -= 2;
-          startPtr++;
+          startPtr--;
         }
         else
         {
           array[endPtr] = array[startPtr];
           endPtr--;
-          startPtr++;
+          startPtr--;
         }
       }
+
+      //shift the array forward
       if (endPtr >= 0)
       {
-        //shift array elements to the front based on last end point location
-        startPtr = 0;
-        for (int i = endPtr; i < array.Length - 1; i++)
+        endPtr++;
+        int shiftPtr = 0;
+        for (int i = endPtr; i < array.Length; i++)
         {
-          array[startPtr] = array[endPtr];
-          startPtr++;
+          array[shiftPtr] = array[i];
+          array[i] = ' ';
+          shiftPtr++;
         }
       }
 
       return array;
 
+    }
+
+    private static int FindFirstSpace(char[] array)
+    {
+      int index = 0;
+      for (int i = 0; i < array.Length; i++)
+      {
+        if (array[i] == ' ')
+        {
+          index = i;
+          break;
+        }
+      }
+      return index;
     }
   }
 }
