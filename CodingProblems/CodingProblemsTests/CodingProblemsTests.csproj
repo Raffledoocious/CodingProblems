@@ -55,6 +55,7 @@
     <Compile Include="PrimeFinderTests.cs" />
     <Compile Include="RectangleTests.cs" />
     <Compile Include="Spiral2DListTests.cs" />
+    <Compile Include="ReverseWordsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">
