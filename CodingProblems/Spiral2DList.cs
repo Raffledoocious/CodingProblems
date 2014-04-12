@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CodingProblems
 {
+  /// <summary>
+  /// Problem 6.15
+  /// </summary>
   public class Spiral2DList
   {
     public static List<int> Print2DArrayToSpiralList(int[,] array)

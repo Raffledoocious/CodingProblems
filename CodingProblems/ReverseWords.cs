@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CodingProblems
 {
-   public class ReverseWords
+  /// <summary>
+  /// Problem 6.19
+  /// </summary>
+  public class ReverseWords
   {
      public static char[] ReverseWordsInCharArray(char[] array)
      {
