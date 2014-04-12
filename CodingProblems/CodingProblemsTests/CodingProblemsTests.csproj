@@ -57,6 +57,7 @@
     <Compile Include="Spiral2DListTests.cs" />
     <Compile Include="ReverseWordsTests.cs" />
     <Compile Include="LimitedCharReplaceTests.cs" />
+    <Compile Include="MyLinkedListTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">
