@@ -8,7 +8,7 @@ namespace CodingProblemsTests
   public class MyLinkedListTests
   {
     [TestMethod]
-    public void LinkedList_TwoElements_RemovingFirstSucceeds()
+    public void Remove_TwoElements_RemovingFirstSucceeds()
     {
       MyLinkedList list = new MyLinkedList();
       list.Append("hi");
@@ -22,7 +22,7 @@ namespace CodingProblemsTests
     }
 
     [TestMethod]
-    public void LinkedList_ThreeElements_RemovingFirstTwoSucceeds()
+    public void Remove_ThreeElements_RemovingFirstTwoSucceeds()
     {
       MyLinkedList list = new MyLinkedList();
       list.Append("hi");
@@ -38,7 +38,7 @@ namespace CodingProblemsTests
     }
 
     [TestMethod]
-    public void LinkedList_FiveElements_RemoveMiddleThree_ExpectFirstAndLastReturned()
+    public void Remove_FiveElements_RemoveMiddleThree_ExpectFirstAndLastReturned()
     {
       MyLinkedList list = new MyLinkedList();
       list.Append("hi");
@@ -59,7 +59,7 @@ namespace CodingProblemsTests
     }
 
     [TestMethod]
-    public void LinkedList_FiveElements_Remove1and4_ExpectCorrectThree()
+    public void Remove_FiveElements_Remove1and4_ExpectCorrectThree()
     {
       MyLinkedList list = new MyLinkedList();
       list.Append("hi");
@@ -80,7 +80,7 @@ namespace CodingProblemsTests
     }
 
     [TestMethod]
-    public void LinkedList_FiveElements_RemoveLast_DoesNotModifyList()
+    public void Remove_FiveElements_RemoveLast_DoesNotModifyList()
     {
       MyLinkedList list = new MyLinkedList();
       list.Append("hi");
@@ -97,6 +97,86 @@ namespace CodingProblemsTests
       Assert.AreEqual("sir", resultList[2]);
       Assert.AreEqual("how", resultList[3]);
       Assert.AreEqual("are", resultList[4]);
+    }
+
+    /*
+     * Tests around removing the kth element
+     */
+
+    [TestMethod]
+    public void kThRemoval_FiveElements_4thElementFromEnd_ShouldRemoveFirstElement()
+    {
+      MyLinkedList list = new MyLinkedList();
+      list.Append("hi");
+      list.Append("there");
+      list.Append("sir");
+      list.Append("how");
+      list.Append("are");
+
+      list.RemoveKthElementFromEnd(4);
+      string[] resultList = list.GetElements();
+
+      Assert.AreEqual("there", resultList[0]);
+      Assert.AreEqual("sir", resultList[1]);
+      Assert.AreEqual("how", resultList[2]);
+      Assert.AreEqual("are", resultList[3]);
+    }
+
+    [TestMethod]
+    public void kThRemoval_FiveElements_1stElementFromEnd_ShouldRemove2ndToLastElement()
+    {
+      MyLinkedList list = new MyLinkedList();
+      list.Append("hi");
+      list.Append("there");
+      list.Append("sir");
+      list.Append("how");
+      list.Append("are");
+
+      list.RemoveKthElementFromEnd(1);
+      string[] resultList = list.GetElements();
+
+      Assert.AreEqual("hi", resultList[0]);
+      Assert.AreEqual("there", resultList[1]);
+      Assert.AreEqual("sir", resultList[2]);
+      Assert.AreEqual("are", resultList[3]);
+    }
+
+    [TestMethod]
+    public void kThRemoval_FiveElements_RemoveMiddleElement_ShouldRemoveCorrectElement()
+    {
+      MyLinkedList list = new MyLinkedList();
+      list.Append("hi");
+      list.Append("there");
+      list.Append("sir");
+      list.Append("how");
+      list.Append("are");
+
+      list.RemoveKthElementFromEnd(2);
+      string[] resultList = list.GetElements();
+
+      Assert.AreEqual("hi", resultList[0]);
+      Assert.AreEqual("there", resultList[1]);
+      Assert.AreEqual("how", resultList[2]);
+      Assert.AreEqual("are", resultList[3]);
+    }
+
+    [TestMethod]
+    public void kThRemoval_FiveElements_RemoveMiddleElements_ShouldRemoveCorrectElement()
+    {
+      MyLinkedList list = new MyLinkedList();
+      list.Append("hi");
+      list.Append("there");
+      list.Append("sir");
+      list.Append("how");
+      list.Append("are");
+
+      list.RemoveKthElementFromEnd(2);
+      list.RemoveKthElementFromEnd(2);
+      string[] resultList = list.GetElements();
+
+      Assert.AreEqual("hi", resultList[0]);
+      Assert.AreEqual("how", resultList[1]);
+      Assert.AreEqual("are", resultList[2]);
     }
   }
 }

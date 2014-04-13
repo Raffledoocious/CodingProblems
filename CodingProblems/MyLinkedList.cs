@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CodingProblems
 {
   /// <summary>
-  /// Problem 7.7
+  /// Problem 7.7 and 7.8
   /// 
   /// Uses a very simple linked list class which only supports appending and removing elements
   /// The problem was more focused on removal so append is not heavily tested.
@@ -39,6 +39,10 @@ namespace CodingProblems
       itemCount++;
     }
 
+    /// <summary>
+    /// Removes node with first occurrence of value
+    /// </summary>
+    /// <param name="value">value to remove</param>
     public void RemoveElement(string value)
     {
       MyLinkedListNode currNode = this.startNode;
@@ -46,15 +50,47 @@ namespace CodingProblems
       {
         currNode = currNode.Next;
       }
+      RemoveNode(ref currNode);
+    }
 
-      if (endNode != currNode)
+    /// <summary>
+    /// Removes node kth from the end of linked list
+    /// </summary>
+    /// <param name="k"></param>
+    public void RemoveKthElementFromEnd(int k)
+    {
+      MyLinkedListNode currNode = this.startNode;
+      while (k > 0)
       {
-        MyLinkedListNode nextNode = currNode.Next;
-        currNode.Value = nextNode.Value;
-        currNode.Next = nextNode.Next;
+        currNode = currNode.Next;
+        k--;
+      }
+
+      MyLinkedListNode deleteNode = this.startNode;
+      while (currNode.Next != null)
+      {
+        deleteNode = deleteNode.Next;
+        currNode = currNode.Next;
+      }
+
+      RemoveNode(ref deleteNode);
+    }
+
+    /// <summary>
+    /// Removes a given node
+    /// </summary>
+    /// <param name="deleteNode">node to remove</param>
+    private void RemoveNode(ref MyLinkedListNode deleteNode)
+    {
+      if (this.endNode != deleteNode)
+      {
+        MyLinkedListNode nextNode = deleteNode.Next;
+        deleteNode.Value = nextNode.Value;
+        deleteNode.Next = nextNode.Next;
         nextNode.Next = null;
         itemCount--;
       }
+
     }
 
     public string[] GetElements()
