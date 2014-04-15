@@ -112,5 +112,6 @@ namespace CodingProblems
   {
     public MyLinkedListNode Next {get; set;}
     public string Value {get; set;}
+    public MyLinkedListNode Jump { get; set; }
   }
 }
