@@ -32,7 +32,7 @@ namespace CodingProblems
       }
       else
       {
-        MyLinkedListNode newNode = new MyLinkedListNode(){ Next = null, Value = value };
+        MyLinkedListNode newNode = new MyLinkedListNode(){ Next = null, Value = value, JumpOrder = -1};
         endNode.Next = newNode;
         endNode = newNode;
       }
@@ -106,6 +106,59 @@ namespace CodingProblems
 
       return elements;
     }
+
+    public void ComputeJumpOrder()
+    {
+     
+      ResetNodeJumpOrders();
+      Stack<MyLinkedListNode> stack = new Stack<MyLinkedListNode>();
+      MyLinkedListNode currNode = this.startNode;
+
+      // initialize the stack
+      if (currNode.Next != null)
+      {
+        stack.Push(currNode.Next);
+      }
+      stack.Push(currNode.Jump);
+
+      int order = 1;
+      currNode.JumpOrder = order;
+      while(stack.Peek() != null)
+      {
+        order++;
+        currNode = stack.Pop();
+
+        // only update non visited nodes
+        if (currNode.JumpOrder == -1)
+        { 
+          currNode.JumpOrder = order; 
+        }
+        
+        // push the next node and then jump node as stack is FIFO
+        if (currNode.Next != null && currNode.Next.JumpOrder != -1)
+        {
+          stack.Push(currNode.Next);
+        }
+        if (currNode.JumpOrder == -1)
+        {
+          stack.Push(currNode.Jump);
+        }
+      }
+
+    }
+
+    /// <summary>
+    /// Resets the order field for jump order 
+    /// </summary>
+    private void ResetNodeJumpOrders()
+    {
+      MyLinkedListNode currNode = this.startNode;
+      while (currNode != null) ;
+      {
+        currNode.JumpOrder = -1;
+        currNode = currNode.Next;
+      }
+    }
   }
 
   public class MyLinkedListNode
@@ -113,5 +166,6 @@ namespace CodingProblems
     public MyLinkedListNode Next {get; set;}
     public string Value {get; set;}
     public MyLinkedListNode Jump { get; set; }
+    public int JumpOrder { get; set; }
   }
 }
