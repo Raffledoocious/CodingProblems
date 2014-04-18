@@ -38,6 +38,17 @@ namespace CodingProblems
       }
       itemCount++;
     }
+    
+    public void Append(string value, int jumpNode)
+    {
+      Append(value);
+      MyLinkedListNode currNode = this.startNode;
+      for (int i = 1; i <= jumpNode; i++)
+      {
+        currNode = currNode.Next;
+      }
+      this.endNode.Jump = currNode;
+    }
 
     /// <summary>
     /// Removes node with first occurrence of value

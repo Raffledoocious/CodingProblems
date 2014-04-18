@@ -178,5 +178,12 @@ namespace CodingProblemsTests
       Assert.AreEqual("how", resultList[1]);
       Assert.AreEqual("are", resultList[2]);
     }
+
+    [TestMethod]
+    public void JumpOrder_ThreeElements_JumpOrderIsCorrect()
+    {
+      MyLinkedList list = new MyLinkedList();
+
+    }
   }
 }
