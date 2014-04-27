@@ -27,7 +27,7 @@ namespace CodingProblems
     {
       if (this.startNode == null)
       {
-        this.startNode = new MyLinkedListNode<T>() { Next = null, Value = value };
+        this.startNode = new MyLinkedListNode<T>() { Next = null, Value = value, JumpOrder = -1 };
         this.endNode = this.startNode;
       }
       else
@@ -45,15 +45,21 @@ namespace CodingProblems
     /// </summary>
     /// <param name="value">value for new node</param>
     /// <param name="jumpNode">the node (based on index) to assign as the jump node</param>
-    public void Append(T value, int jumpNode)
+    public void SetJumpNode(int nodeIndex, int jumpNodeIndex)
     {
-      Append(value);
       MyLinkedListNode<T> currNode = this.startNode;
-      for (int i = 1; i <= jumpNode; i++)
+      for (int i = 0; i < nodeIndex; i++)
       {
         currNode = currNode.Next;
       }
-      this.endNode.Jump = currNode;
+
+      MyLinkedListNode<T> jumpNode = this.startNode;
+      for (int i = 0; i < jumpNodeIndex; i++)
+      {
+        jumpNode = jumpNode.Next;
+      }
+
+      currNode.Jump = jumpNode;
     }
 
     /// <summary>
@@ -125,8 +131,7 @@ namespace CodingProblems
     }
 
     public void ComputeJumpOrder()
-    {
-     
+    {     
       ResetNodeJumpOrders();
       Stack<MyLinkedListNode<T>> stack = new Stack<MyLinkedListNode<T>>();
       MyLinkedListNode<T> currNode = this.startNode;
@@ -140,28 +145,30 @@ namespace CodingProblems
 
       int order = 1;
       currNode.JumpOrder = order;
-      while(stack.Peek() != null)
+      order++;
+
+      while(stack.Count != 0)
       {
-        order++;
+
         currNode = stack.Pop();
 
         // only update non visited nodes
         if (currNode.JumpOrder == -1)
         { 
-          currNode.JumpOrder = order; 
+          currNode.JumpOrder = order;
+          order++;
         }
         
         // push the next node and then jump node as stack is FIFO
-        if (currNode.Next != null && currNode.Next.JumpOrder != -1)
+        if (currNode.Next != null && currNode.Next.JumpOrder == -1)
         {
           stack.Push(currNode.Next);
         }
-        if (currNode.JumpOrder == -1)
+        if (currNode.Jump.JumpOrder == -1)
         {
           stack.Push(currNode.Jump);
         }
       }
-
     }
 
     /// <summary>
@@ -170,11 +177,24 @@ namespace CodingProblems
     private void ResetNodeJumpOrders()
     {
       MyLinkedListNode<T> currNode = this.startNode;
-      while (currNode != null) ;
+      while (currNode != null)
       {
         currNode.JumpOrder = -1;
         currNode = currNode.Next;
       }
+    }
+
+    public MyLinkedListNode<T>[] GetNodeElements()
+    {
+      MyLinkedListNode<T>[] array = new MyLinkedListNode<T>[itemCount];
+      MyLinkedListNode<T> currNode = this.startNode;
+      for (int i = 0; i < itemCount; i++)
+      {
+        array[i] = currNode;
+        currNode = currNode.Next;
+      }
+
+      return array;
     }
   }
 
