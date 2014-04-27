@@ -10,7 +10,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void Remove_TwoElements_RemovingFirstSucceeds()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
 
@@ -24,7 +24,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void Remove_ThreeElements_RemovingFirstTwoSucceeds()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
       list.Append("sir");
@@ -40,7 +40,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void Remove_FiveElements_RemoveMiddleThree_ExpectFirstAndLastReturned()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
       list.Append("sir");
@@ -61,7 +61,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void Remove_FiveElements_Remove1and4_ExpectCorrectThree()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
       list.Append("sir");
@@ -82,7 +82,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void Remove_FiveElements_RemoveLast_DoesNotModifyList()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
       list.Append("sir");
@@ -106,7 +106,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void kThRemoval_FiveElements_4thElementFromEnd_ShouldRemoveFirstElement()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
       list.Append("sir");
@@ -125,7 +125,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void kThRemoval_FiveElements_1stElementFromEnd_ShouldRemove2ndToLastElement()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
       list.Append("sir");
@@ -144,7 +144,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void kThRemoval_FiveElements_RemoveMiddleElement_ShouldRemoveCorrectElement()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
       list.Append("sir");
@@ -163,7 +163,7 @@ namespace CodingProblemsTests
     [TestMethod]
     public void kThRemoval_FiveElements_RemoveMiddleElements_ShouldRemoveCorrectElement()
     {
-      MyLinkedList list = new MyLinkedList();
+      MyLinkedList<string> list = new MyLinkedList<string>();
       list.Append("hi");
       list.Append("there");
       list.Append("sir");
@@ -182,7 +182,6 @@ namespace CodingProblemsTests
     [TestMethod]
     public void JumpOrder_ThreeElements_JumpOrderIsCorrect()
     {
-      MyLinkedList list = new MyLinkedList();
 
     }
   }

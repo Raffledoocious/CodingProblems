@@ -12,10 +12,10 @@ namespace CodingProblems
   /// Uses a very simple linked list class which only supports appending and removing elements
   /// The problem was more focused on removal so append is not heavily tested.
   /// </summary>
-  public class MyLinkedList
+  public class MyLinkedList<T>
   {
-    private MyLinkedListNode startNode;
-    private MyLinkedListNode endNode;
+    private MyLinkedListNode<T> startNode;
+    private MyLinkedListNode<T> endNode;
     private int itemCount;
 
     public MyLinkedList()
@@ -23,26 +23,32 @@ namespace CodingProblems
       this.startNode = null;
     }
 
-    public void Append(string value)
+    public void Append(T value)
     {
       if (this.startNode == null)
       {
-        this.startNode = new MyLinkedListNode() { Next = null, Value = value };
+        this.startNode = new MyLinkedListNode<T>() { Next = null, Value = value };
         this.endNode = this.startNode;
       }
       else
       {
-        MyLinkedListNode newNode = new MyLinkedListNode(){ Next = null, Value = value, JumpOrder = -1};
+        MyLinkedListNode<T> newNode = new MyLinkedListNode<T>(){ Next = null, Value = value, JumpOrder = -1};
         endNode.Next = newNode;
         endNode = newNode;
       }
       itemCount++;
     }
     
-    public void Append(string value, int jumpNode)
+    /// <summary>
+    /// First appends the node and then assigns its jump value 
+    /// to the given node with 0 being the first node.
+    /// </summary>
+    /// <param name="value">value for new node</param>
+    /// <param name="jumpNode">the node (based on index) to assign as the jump node</param>
+    public void Append(T value, int jumpNode)
     {
       Append(value);
-      MyLinkedListNode currNode = this.startNode;
+      MyLinkedListNode<T> currNode = this.startNode;
       for (int i = 1; i <= jumpNode; i++)
       {
         currNode = currNode.Next;
@@ -54,10 +60,10 @@ namespace CodingProblems
     /// Removes node with first occurrence of value
     /// </summary>
     /// <param name="value">value to remove</param>
-    public void RemoveElement(string value)
+    public void RemoveElement(T value)
     {
-      MyLinkedListNode currNode = this.startNode;
-      while (startNode.Next != null && currNode.Value != value)
+      MyLinkedListNode<T> currNode = this.startNode;
+      while (startNode.Next != null && !currNode.Value.Equals(value))
       {
         currNode = currNode.Next;
       }
@@ -70,14 +76,14 @@ namespace CodingProblems
     /// <param name="k"></param>
     public void RemoveKthElementFromEnd(int k)
     {
-      MyLinkedListNode currNode = this.startNode;
+      MyLinkedListNode<T> currNode = this.startNode;
       while (k > 0)
       {
         currNode = currNode.Next;
         k--;
       }
 
-      MyLinkedListNode deleteNode = this.startNode;
+      MyLinkedListNode<T> deleteNode = this.startNode;
       while (currNode.Next != null)
       {
         deleteNode = deleteNode.Next;
@@ -91,11 +97,11 @@ namespace CodingProblems
     /// Removes a given node
     /// </summary>
     /// <param name="deleteNode">node to remove</param>
-    private void RemoveNode(ref MyLinkedListNode deleteNode)
+    private void RemoveNode(ref MyLinkedListNode<T> deleteNode)
     {
       if (this.endNode != deleteNode)
       {
-        MyLinkedListNode nextNode = deleteNode.Next;
+        MyLinkedListNode<T> nextNode = deleteNode.Next;
         deleteNode.Value = nextNode.Value;
         deleteNode.Next = nextNode.Next;
         nextNode.Next = null;
@@ -104,11 +110,11 @@ namespace CodingProblems
 
     }
 
-    public string[] GetElements()
+    public T[] GetElements()
     {
-      string[] elements = new string[itemCount];
+      T[] elements = new T[itemCount];
 
-      MyLinkedListNode currentNode = this.startNode;
+      MyLinkedListNode<T> currentNode = this.startNode;
       for(int i = 0; i < itemCount; i++)
       {
         elements[i] = currentNode.Value;
@@ -122,8 +128,8 @@ namespace CodingProblems
     {
      
       ResetNodeJumpOrders();
-      Stack<MyLinkedListNode> stack = new Stack<MyLinkedListNode>();
-      MyLinkedListNode currNode = this.startNode;
+      Stack<MyLinkedListNode<T>> stack = new Stack<MyLinkedListNode<T>>();
+      MyLinkedListNode<T> currNode = this.startNode;
 
       // initialize the stack
       if (currNode.Next != null)
@@ -163,7 +169,7 @@ namespace CodingProblems
     /// </summary>
     private void ResetNodeJumpOrders()
     {
-      MyLinkedListNode currNode = this.startNode;
+      MyLinkedListNode<T> currNode = this.startNode;
       while (currNode != null) ;
       {
         currNode.JumpOrder = -1;
@@ -172,11 +178,11 @@ namespace CodingProblems
     }
   }
 
-  public class MyLinkedListNode
+  public class MyLinkedListNode<T>
   {
-    public MyLinkedListNode Next {get; set;}
-    public string Value {get; set;}
-    public MyLinkedListNode Jump { get; set; }
+    public MyLinkedListNode<T> Next {get; set;}
+    public T Value {get; set;}
+    public MyLinkedListNode<T> Jump { get; set; }
     public int JumpOrder { get; set; }
   }
 }
