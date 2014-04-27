@@ -58,6 +58,7 @@
     <Compile Include="ReverseWordsTests.cs" />
     <Compile Include="LimitedCharReplaceTests.cs" />
     <Compile Include="MyLinkedListTests.cs" />
+    <Compile Include="BuildingManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">

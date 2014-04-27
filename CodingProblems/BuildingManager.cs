@@ -42,9 +42,9 @@ namespace CodingProblems
       return allBuildings;
     }
 
-    public Stack<Building> GetSunSeeingBuildings()
+    public List<Building> GetSunSeeingBuildings()
     {
-      return canSeeSun;
+      return canSeeSun.ToList();
     }
   }
 
