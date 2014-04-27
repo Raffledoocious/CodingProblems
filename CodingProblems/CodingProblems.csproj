@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BitReversal.cs" />
     <Compile Include="LimitedCharReplace.cs" />
+    <Compile Include="MaxQueue.cs" />
     <Compile Include="MyLinkedList.cs" />
     <Compile Include="PrimeFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

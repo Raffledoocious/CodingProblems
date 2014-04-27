@@ -59,6 +59,7 @@
     <Compile Include="LimitedCharReplaceTests.cs" />
     <Compile Include="MyLinkedListTests.cs" />
     <Compile Include="BuildingManagerTests.cs" />
+    <Compile Include="MaxQueueTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">
