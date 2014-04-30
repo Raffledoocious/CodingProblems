@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitReversal.cs" />
+    <Compile Include="CircularSortedList.cs" />
+    <Compile Include="InOrderTraversal.cs" />
     <Compile Include="LimitedCharReplace.cs" />
     <Compile Include="MaxQueue.cs" />
     <Compile Include="MyLinkedList.cs" />
