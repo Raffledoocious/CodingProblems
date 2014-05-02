@@ -32,7 +32,7 @@ namespace CodingProblems
         else if (circularList[rightBound] < circularList[middleIndex])
         {
           leftBound = middleIndex;
-          middleIndex = (rightBound - middleIndex) / 2;
+          middleIndex = ((rightBound - middleIndex) / 2) + middleIndex;
         }
 
         // handling edge case where array is sorted
