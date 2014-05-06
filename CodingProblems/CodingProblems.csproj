@@ -51,6 +51,7 @@
     <Compile Include="ReverseWords.cs" />
     <Compile Include="Spiral2DList.cs" />
     <Compile Include="BuildingManager.cs" />
+    <Compile Include="WordGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
