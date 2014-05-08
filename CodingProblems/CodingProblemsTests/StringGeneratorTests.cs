@@ -54,5 +54,23 @@ namespace CodingProblemsTests
       CollectionAssert.Contains(genStrings, "ccb");
       CollectionAssert.Contains(genStrings, "ccc");
     }
+
+    [TestMethod]
+    public void StringGen_ThreeCharacters_LengthTwo_CorrectStringsReturned()
+    {
+      List<char> chars = new List<char> { 'a', 'b', 'c' };
+      List<string> genStrings = StringGenerator.GenerateCharacterCombinations(chars, 2);
+
+      Assert.AreEqual(9, genStrings.Count);
+      CollectionAssert.Contains(genStrings, "aa");
+      CollectionAssert.Contains(genStrings, "ab");
+      CollectionAssert.Contains(genStrings, "ac");
+      CollectionAssert.Contains(genStrings, "ba");
+      CollectionAssert.Contains(genStrings, "bb");
+      CollectionAssert.Contains(genStrings, "bc");
+      CollectionAssert.Contains(genStrings, "ca");
+      CollectionAssert.Contains(genStrings, "cb");
+      CollectionAssert.Contains(genStrings, "cc");
+    }
   }
 }
