@@ -61,6 +61,7 @@
     <Compile Include="BuildingManagerTests.cs" />
     <Compile Include="MaxQueueTests.cs" />
     <Compile Include="CircularSortedListTests.cs" />
+    <Compile Include="StringGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">
