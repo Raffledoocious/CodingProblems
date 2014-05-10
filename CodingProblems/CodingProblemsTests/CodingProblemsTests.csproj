@@ -62,6 +62,7 @@
     <Compile Include="MaxQueueTests.cs" />
     <Compile Include="CircularSortedListTests.cs" />
     <Compile Include="StringGeneratorTests.cs" />
+    <Compile Include="ParenthesesMatcherTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">

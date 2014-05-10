@@ -33,7 +33,7 @@ namespace CodingProblems
             indiceStack.Pop();
             parenthesesStack.Pop();
           }
-          //otherwise we do not have a match, so onto the stacks
+          //otherwise we do not have a match, so push onto the stacks
           else
           {
             indiceStack.Push(i);
