@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BitReversal.cs" />
     <Compile Include="CircularSortedList.cs" />
+    <Compile Include="MaxSumOfTwoPairs.cs" />
     <Compile Include="ParenthesesMatcher.cs" />
     <Compile Include="InOrderTraversal.cs" />
     <Compile Include="LimitedCharReplace.cs" />

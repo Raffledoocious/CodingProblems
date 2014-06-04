@@ -63,6 +63,7 @@
     <Compile Include="CircularSortedListTests.cs" />
     <Compile Include="StringGeneratorTests.cs" />
     <Compile Include="ParenthesesMatcherTests.cs" />
+    <Compile Include="MaxSumOfTwoPairsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">
