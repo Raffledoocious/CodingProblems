@@ -8,36 +8,53 @@ namespace CodingProblems
 {
   public class SimpleFBGraph
   {
-    public List<FBMember> getFriendDegress(FBMember m)
+    public static Dictionary<int, List<FBMember>> GetFriendDegrees(FBMember m)
     {
       Queue<FBMember> toVisitMembers = new Queue<FBMember>();
-      List<FBMember> membersWithDeg = new List<FBMember>();
+      Dictionary<int, List<FBMember>> degreeDict = new Dictionary<int, List<FBMember>>();
+      Dictionary<string, int> visitedMembers = new Dictionary<string, int>();
 
-      //initialize each element to -1
+      // visit all first level members
+      // setting their degree and marking as visited
       foreach (FBMember member in m.Friends)
       {
         member.Degree = 1;
-        toVisitMembers.Enqueue(member);
-        membersWithDeg.Add(member);
+        toVisitMembers.Enqueue(member);  
+        visitedMembers.Add(member.Email, 1);
       }
 
       while (toVisitMembers.Count > 0)
       {
         FBMember currentFriend = toVisitMembers.Dequeue();
-        membersWithDeg.Add(currentFriend);
-        foreach (FBMember member in m.Friends)
+        
+        if (!degreeDict.ContainsKey(currentFriend.Degree))
         {
-          if (member.Degree == -1)
+          degreeDict[currentFriend.Degree] = new List<FBMember>() { currentFriend };
+        }
+        else
+        {
+          degreeDict[currentFriend.Degree].Add(currentFriend);
+        }
+
+        foreach (FBMember member in currentFriend.Friends)
+        {
+          if (!visitedMembers.ContainsKey(member.Email))
           {
-            member.Degree = currentFriend.Degree++;
+            member.Degree = currentFriend.Degree + 1;
             toVisitMembers.Enqueue(member);
           }
         }
       }
 
-      return membersWithDeg;
-    }
-   
+      if (degreeDict.Count == 0)
+      {
+        return null;
+      }
+      else
+      {
+        return degreeDict;
+      }
+    }   
   }
 
   public class FBMember
