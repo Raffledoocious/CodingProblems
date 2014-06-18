@@ -65,6 +65,7 @@
     <Compile Include="ParenthesesMatcherTests.cs" />
     <Compile Include="MaxSumOfTwoPairsTests.cs" />
     <Compile Include="SimpleFBGraphTests.cs" />
+    <Compile Include="StackUsingQueueTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">

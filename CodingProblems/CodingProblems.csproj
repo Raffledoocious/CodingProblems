@@ -49,6 +49,7 @@
     <Compile Include="MyLinkedList.cs" />
     <Compile Include="PrimeFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackUsingQueue.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="ReverseWords.cs" />
     <Compile Include="SimpleFBGraph.cs" />
