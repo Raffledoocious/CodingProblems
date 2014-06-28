@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitMinMaxFinder.cs" />
     <Compile Include="BitReversal.cs" />
     <Compile Include="CircularSortedList.cs" />
     <Compile Include="GetBitCount.cs" />

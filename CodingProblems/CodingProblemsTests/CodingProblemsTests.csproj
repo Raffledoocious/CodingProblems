@@ -67,6 +67,7 @@
     <Compile Include="SimpleFBGraphTests.cs" />
     <Compile Include="StackUsingQueueTests.cs" />
     <Compile Include="GetBitCountTests.cs" />
+    <Compile Include="BitMinMaxFinderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodingProblems.csproj">
