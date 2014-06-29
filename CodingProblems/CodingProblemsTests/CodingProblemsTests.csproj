@@ -59,7 +59,6 @@
     <Compile Include="LimitedCharReplaceTests.cs" />
     <Compile Include="MyLinkedListTests.cs" />
     <Compile Include="BuildingManagerTests.cs" />
-    <Compile Include="MaxQueueTests.cs" />
     <Compile Include="CircularSortedListTests.cs" />
     <Compile Include="StringGeneratorTests.cs" />
     <Compile Include="ParenthesesMatcherTests.cs" />
