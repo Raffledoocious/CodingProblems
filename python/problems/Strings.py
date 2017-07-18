@@ -17,7 +17,7 @@ class Strings(object):
         return True
 
     @staticmethod
-    def is_permutation(a, b):
+    def is_perm(a, b):
         """
         Given two strings, determines iff a is a permutation of b
         """
