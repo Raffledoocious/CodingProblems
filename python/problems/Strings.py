@@ -115,6 +115,54 @@ class Strings(object):
         
         return True
 
+    @staticmethod
+    def is_one_edit_away(s1, s2):
+        """
+        Given two strings, returns true if they are one insertion, removal, or deletion away from
+        each other
+        """
+        s1_len = len(s1)
+        s2_len = len(s2)
+
+        is_one_edit = False
+        if s1_len == s2_len:
+            is_one_edit = Strings.__is_edit(s1, s1_len, s2, s2_len)
+        elif s1_len - s2_len == -1:
+            is_one_edit = Strings.__is_edit(s1, s1_len, s2, s2_len)
+        elif s1_len - s2_len == 1:
+            is_one_edit = Strings.__is_edit(s2, s2_len, s1, s1_len)
+        
+        return is_one_edit
+
+    @staticmethod
+    def __is_edit(s1, s1_len, s2, s2_len):
+        """
+        Given two strings, with len(s1) being <= len(s2), returns true if
+        s2 is an insertion or replacement away from s2
+        """
+        diff_count = 0
+
+        s2_index = 0
+        for char in s1:
+            if s2[s2_index] is not char:
+                diff_count += 1
+                
+                if diff_count > 1:
+                    return False
+
+                if (s1_len is not s2_len):
+                    s2_index += 1
+
+                    if s2[s2_index] is not char:
+                        return False
+            s2_index += 1
+        
+        return True
+
+
+
+            
+
 
 
 
