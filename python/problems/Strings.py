@@ -88,6 +88,9 @@ class Strings(object):
             dggod -> True (permutation of dgogd)
             cat -> False
         """
+        if s == "":
+            return False
+
         even = len(s) % 2 == 0
         chars = defaultdict(int)
 
