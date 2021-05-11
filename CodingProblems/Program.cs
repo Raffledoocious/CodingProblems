@@ -6,8 +6,15 @@ namespace CodingProblems
 	{
 		static void Main(string[] args)
 		{
-			var reversed = PalindromeNumber.IsPalindrome(102);
-			Console.WriteLine(101 / 10);
+			//int reversed = 0;
+			//while (number > 0)
+			//{
+			//	int digit = number % 10;
+			//	reversed = reversed * 10 + digit;
+			//	number = (number - digit) / 10;
+			//}
+
+			//return reversed;
 		}
 	}
 }
