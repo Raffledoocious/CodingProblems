@@ -107,7 +107,7 @@ namespace CodingProblems
 					digit = 4;
 					return true;
 				case '5':
-					digit = 4;
+					digit = 5;
 					return true;
 				case '6':
 					digit = 6;

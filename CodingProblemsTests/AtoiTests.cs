@@ -26,6 +26,7 @@ namespace CodingProblemsTests
 		[TestCase("    ", 0)]
 		[TestCase("", 0)]
 		[TestCase(null, 0)]
+		[TestCase("  0000000000012345678", "12345678")]
 		public void ConvertValidStrings_CorrectNumberReturned(string s, int expected)
 		{
 			var result = Atoi.Convert(s);
