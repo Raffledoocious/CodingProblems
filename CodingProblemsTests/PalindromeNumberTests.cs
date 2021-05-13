@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace CodingProblemsTests
 {
-	public class Tests
+	public class PalindromeNumberTests
 	{
 		[TestCase(0, true)]
 		[TestCase(-10, false)]
@@ -13,10 +13,10 @@ namespace CodingProblemsTests
 		[TestCase(1230321, true)]
 		[TestCase(1234, false)]
 		[TestCase(-101, false)]
-		public void BuiltInLibraries_ReturnsCorrectResult(int number, bool expectedResult)
+		public void BuiltInLibraries_ReturnsCorrectResult(int number, bool expected)
 		{
 			bool isPalindrome = PalindromeNumber.IsPalindrome(number);
-			Assert.AreEqual(expectedResult, isPalindrome);
+			Assert.AreEqual(expected, isPalindrome);
 		}
 
 		[TestCase(0, true)]
@@ -27,8 +27,10 @@ namespace CodingProblemsTests
 		[TestCase(1230321, true)]
 		[TestCase(1234, false)]
 		[TestCase(-101, false)]
-		public void NoBuiltInLibraries_ReturnsCorrectResult(int number, bool expectedResult)
+		public void NoBuiltInLibraries_ReturnsCorrectResult(int number, bool expected)
 		{
+			bool isPalindrome = PalindromeNumber.IsPalindromeWithoutConversion(number);
+			Assert.AreEqual(expected, isPalindrome);
 		}
 	}
 }
