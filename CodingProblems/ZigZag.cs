@@ -7,6 +7,11 @@ namespace CodingProblems
 	{
 		public static string Convert(string input, int numRows)
 		{
+			if (string.IsNullOrEmpty(input) || numRows == 1) 
+			{
+				return input;
+			}
+
 			int row = 0;
 			bool isZaggingUp = false;
 
