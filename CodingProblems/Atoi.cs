@@ -46,7 +46,6 @@ namespace CodingProblems
 		private static int ConvertString(string s, int sign)
 		{
 			int number = 0;
-			bool containsDigit = false;
 			try
 			{
 				for (int i = 0; i < s.Length; i++) 
